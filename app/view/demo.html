@@ -1,0 +1,21 @@
+<h1>Hello World</h1>
+
+<div ng-repeat="post in posts">
+	<p>{{post.body}} --- {{post.author}}</p>
+	<button ng-click="posts.$remove(post)">delete</button>
+	<button ng-click="$parent.chnagePost = post">edit</button>
+</div>
+
+<form ng-submit="addPost()">
+	<textarea ng-model="newPost.body"></textarea>
+	<input type="text" ng-model="newPost.author">
+	<button type="submit">Save</button>
+</form>
+
+<form ng-show="chnagePost" ng-submit="posts.$saves(chnagePost)">
+	<textarea ng-model="chnagePost.body"></textarea>
+	<input type="text" ng-model="chnagePost.author">
+	<button type="submit">Save</button>
+</form>
+
+
